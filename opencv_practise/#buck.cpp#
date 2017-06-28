@@ -1,0 +1,9 @@
+
+void buck(Mat &a,Mat &b,i,j)
+{b.at<Vec3b>(i,j)[2]=255;
+  for(int k=i-1;k<i+1;i++)
+    for(int l=j-1;l<j+1;j++)
+      {
+	if(!(b.<Vec3b>(k,l)[2]==255)&&a.<uchar>(k,l)==0)
+	  b
+  

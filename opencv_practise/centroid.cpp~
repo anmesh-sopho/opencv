@@ -1,0 +1,28 @@
+#include "opencv2/opencv.hpp"
+#include "opencv2/highgui/highgui.hpp"
+#include "opencv2/imgproc/imgproc.hpp"
+#include "opencv2/core/core.hpp"
+#include<iostream>
+using namespace cv;
+using namespace std;
+void centroid(Mat &a,&z,&k)
+{int sumi=0;int count =0;
+  for(i=0;i<a.rows.i++)
+	for(j=0;j<a.cols;j++)
+	  {if(a.at<uchar>==255)
+	      {sumi+=i;
+		sumj+=j;
+		count++;
+		
+	      }
+	  }z=sumi/count;
+  k=sumj/count;
+}
+int main(int argv,char **argc)
+{Mat a=imread(argc[1],0);
+  int i,j;
+  centroid(&a,&i,&j);
+  count<<"x="<<i<<'\n'<<"y="<<j;
+  return 0;
+}
+  

@@ -1,0 +1,19 @@
+#include "opencv2/highgui/highgui.hpp"
+#include "opencv2/imgproc/imgproc.hpp"
+#include "opencv2/core/core.hpp"
+using namespace cv;
+using namespace std;
+
+
+int main(){
+  int i,j;
+  Mat a(400,400,CV_8UC3,Scalar(0,0,0));
+  for(i=0;i<400;i++){
+    for(j=0;j<400;j++){
+      if ((i-200)*(i-200)+(j-200)(j-200)<=100){
+    a.at<Vec3b>(i,j)[0]=255;
+      }}}
+  namedWindow("box",WINDOW_AUTOSIZE);
+  imshow("box",a);
+  waitKey(0);
+  return 0;}

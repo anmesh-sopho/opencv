@@ -1,0 +1,29 @@
+#include "opencv2/highgui/highgui.hpp"
+#include "opencv2/imgproc/imgproc.hpp"
+#include "opencv2/core/core.hpp"
+#include<iostream>
+using namespace cv;
+using namespace std;
+Mat erosion(Mat a)
+{int r=a.rows,c=a.cols;
+  for(i=0;i<r;i++)
+    for(j=0;j<c;j++)
+      {
+	if(a.<uchar>(i,j)==255)
+	  for(k=i-1;k<i+1;k++)
+	    for(l=j-1;l<j+1;j++)
+	      { if(k==i&&j==j)
+		  continue;
+		else
+		  
+		    if(a.<uchar>(k,l)==0)
+		      {  a.<uchar>(i,j)=255;
+			break;}
+	      }
+	return a;
+
+
+		
+int main()
+{
+  

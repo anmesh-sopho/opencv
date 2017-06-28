@@ -1,0 +1,42 @@
+#include <opencv2/core/core.hpp>
+#include <opencv2/highgui/highgui.hpp>
+//#include <opencv2/opencv.hpp>
+#include <opencv2/imgproc/imgproc.hpp>
+#include <iostream>
+
+using namespace cv;
+using namespace std;
+
+int main()
+{
+Mat var,img;
+int a,b,i,j,k=0,l=0,y,x,max=1;
+int gray[256];
+for(i=0;i<=255;i++) gray[i]=0;
+var=imread("read.jpg",2);
+a=var.rows;
+b=var.cols;
+for(i=0;i<a;i++){
+for(j=0;j<b;j++)
+{
+ x=var.at<uchar>(i,j);
+ for(y=0;y<=255;y++){
+ if(y==x){gray[y]=gray[y]+1;}
+}}}
+
+for(i=0;i<=255;i++){
+if(gray[i]>max)max=gray[i];
+}
+max=max/5;
+for(i=0;i<=255;i++) gray[i]=gray[i]/5;
+img= Mat(max+2,257,CV_8UC1,Scalar(255));
+for(j=0;j<=255;j++)
+{
+cout<< gray[j]<<endl;
+for(i=max+2;i>(max+2-gray[j]);i--)
+img.at<uchar>(i,j)=0;
+}
+namedWindow("esha",WINDOW_AUTOSIZE);
+imshow("esha",img);
+waitKey(0);
+}
